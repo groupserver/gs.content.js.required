@@ -1,7 +1,10 @@
-jQuery.noConflict();function GSContentRequired(h,f){var b=null,d=null,g=null,a=null;
-function e(){var k=0,l=null,j=true,m=true;a=new Array();for(k=0;k<g.length;k++){l=jQuery(g[k]);
-j=(l.val()!="");if(!j){a.push(l)}m=m&&j}if(m){d.removeAttr("disabled")}else{d.attr("disabled","disabled")
-}}function c(j){e()}function i(){b=jQuery(h);if((f==null)||(typeof f==="undefined")){d=b.find('input[type="submit"]')
-}else{d=jQuery(f)}g=b.find(".required input, .required textarea");e();g.keyup(c)}i();
-return{required_widgets:function(){return g},unfinished_widgets:function(){return unfinishedWidgets
-}}};
+jQuery.noConflict();function GSContentRequiredInterlock(d,c){var b=null,g=null;function e(){var j=0,k=null,h=true,l=true;
+g=new Array();for(j=0;j<b.length;j++){k=jQuery(b[j]);h=(k.val()!="");if(!h){g.push(k)
+}l=l&&h}if(l){c.removeAttr("disabled")}else{c.attr("disabled","disabled")}}function a(h){e()
+}function f(){if((c===null)||(typeof c==="undefined")){c=d.find('input[type="submit"]')
+}b=d.find(".required input, .required textarea");e();b.keyup(a)}f();return{required_widgets:function(){return b
+},unfinished_widgets:function(){return unfinishedWidgets}}}function GSContentRequired(d,a){var b=null;
+button=null;function c(){b=jQuery(d);if((a!==null)&&(typeof a!=="undefined")){button=jQuery(a)
+}}c();return GSContentRequiredInterlock(b,button)}jQuery(window).load(function(){var c=null,b=null,a=null,d=null;
+c=jQuery("form.gs-content-js-required");if(c.is("*")){b=c.attr("data-required-buttons");
+if(typeof b!=="undefined"){a=jQuery(b)}d=GSContentRequiredInterlock(c,a)}});

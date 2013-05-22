@@ -1,10 +1,8 @@
 jQuery.noConflict();
 
-function GSContentRequired (formId, buttonId) {
+function GSContentRequiredInterlock (form, button) {
 
-    var form = null,
-        button = null,
-        requiredWidgets = null,
+    var requiredWidgets = null,
         unfinished = null;
 
     function check_required_widgets() {
@@ -39,15 +37,11 @@ function GSContentRequired (formId, buttonId) {
     } // check
 
     function init () {
-        form = jQuery(formId);
-        
-        if ((buttonId == null) || (typeof buttonId === "undefined")) {
+        if ((button === null) || (typeof button === "undefined")) {
             // If the button has not been passed to us, set the default to
             // be the Submit button.
             button = form.find('input[type="submit"]');
-        } else {
-            button = jQuery(buttonId);
-        }
+        } 
         
         requiredWidgets = form.find('.required input, .required textarea');
         check_required_widgets();
@@ -59,4 +53,33 @@ function GSContentRequired (formId, buttonId) {
         required_widgets: function () {return requiredWidgets;},
         unfinished_widgets: function () {return unfinishedWidgets;}
     }
+} // GSContentRequiredInterlock
+
+function GSContentRequired (formId, buttonId) {
+    var form = null
+        button = null;
+
+    function init () {
+        form = jQuery(formId);
+        
+        if ((buttonId !== null) && (typeof buttonId !== "undefined")) {
+            button = jQuery(buttonId);
+        }
+    } // init
+    init(); // Note the automatic execution
+
+    return GSContentRequiredInterlock(form, button);
 } // GSContentRequired
+
+jQuery(window).load(function () {
+    var form = null, buttonId = null, button = null, required = null;
+
+    form = jQuery('form.gs-content-js-required');
+    if ( form.is('*') ) {
+        buttonId = form.attr('data-required-buttons');
+        if ( typeof buttonId !== 'undefined' ) {
+            button = jQuery(buttonId);
+        }
+        required = GSContentRequiredInterlock(form, button);
+    }
+});
