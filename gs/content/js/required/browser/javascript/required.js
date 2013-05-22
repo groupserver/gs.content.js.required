@@ -45,7 +45,7 @@ function GSContentRequiredInterlock (form, button) {
         
         requiredWidgets = form.find('.required input, .required textarea');
         check_required_widgets();
-        requiredWidgets.keyup(check);
+        requiredWidgets.keyup(check).on('paste', check);
     } // init
     init(); // Note the automatic execution
 
