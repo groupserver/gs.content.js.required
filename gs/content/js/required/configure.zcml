@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:five="http://namespaces.zope.org/five">
+
+  <browser:resource
+    name="gs-content-js-required-20130517.js"
+    file="browser/javascript/required.js"
+    permission="zope2.Public" />
+  <browser:resource
+    name="gs-content-js-required-min-20130517.js"
+    file="browser/javascript/required-min.js"
+    permission="zope2.Public" />
+
+</configure>
