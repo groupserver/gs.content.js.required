@@ -20,6 +20,7 @@ setup(name='gs.content.js.required',
         "Operating System :: OS Independent"
         "Programming Language :: JavaScript",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+        "Topic :: Software Development :: Libraries :: JavaScript Modules",
     ],
     keywords='javascript required form',
     author='Michael JasonSmith',
