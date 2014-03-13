@@ -1,3 +1,6 @@
+"use strict";
+// Disable the Submit button of a form if the required widgets are unset.
+//
 // Copyright © 2013, 2014 OnlineGroups.net and Contributors.
 // All Rights Reserved.
 //
