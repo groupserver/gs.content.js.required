@@ -64,7 +64,7 @@ function GSContentRequiredInterlock (form, button) {
 
     return {
         required_widgets: function () {return requiredWidgets;},
-        unfinished_widgets: function () {return unfinishedWidgets;}
+        unfinished_widgets: function () {return unfinished;}
     };
 } // GSContentRequiredInterlock
 
