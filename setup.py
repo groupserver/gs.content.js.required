@@ -21,8 +21,8 @@ version = get_version()
 setup(name='gs.content.js.required',
     version=version,
     description="JavaScript to required some widgets to be filled out.",
-    long_description=open("README.txt").read() + "\n" +
-                      open(os.path.join("docs", "HISTORY.txt")).read(),
+    long_description=open("README.rst").read() + "\n" +
+                      open(os.path.join("docs", "HISTORY.rst")).read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         "Environment :: Web Environment",
