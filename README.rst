@@ -7,25 +7,29 @@ Make required widgets actually required
 
 :Author: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
-:Date: 2013-05-17
+:Date: 2010-10-10
 :Organization: `GroupServer.org`_
 :Copyright: This document is licensed under a
-  `Creative Commons Attribution-Share Alike 3.0 New Zealand License`_
+  `Creative Commons Attribution-Share Alike 4.0 International License`_
   by `OnlineGroups.Net`_.
+
 
 Introduction
 ============
 
-This product provides a JavaScript resource_ to prevent a form from being
-submitted if the required widgets are not filled out. The JavaScript is
-activated if the requisite markup_ is present.
+This product provides a JavaScript resource_ to prevent a form
+from being submitted if the required widgets are not filled
+out. The JavaScript is activated if the requisite markup_ is
+present.
 
 Resource
 ========
 
 This product provides a JavaScript module as a Zope_ `browser
-resource`_. Any Zope or Plone_ project should be able to use this product
-as-is by placing the following line in a page template::
+resource`_. Any Zope or Plone_ project should be able to use this
+product as-is by placing the following line in a page template:
+
+.. code-block:: xml
 
   <script type="text/javascript" 
           src="/++resource++gs-content-js-required-20130517.js" 
@@ -35,7 +39,9 @@ Users of other systems are invited to copy the file
 ``gs/content/js/required/browser/javascript/required.js`` out of this
 product. 
 
-A minified version of the script is available, too::
+A minified version of the script is available, too:
+
+.. code-block:: xml
 
   <script type="text/javascript" 
           src="/++resource++gs-content-js-required-min-20130517.js" 
@@ -47,13 +53,18 @@ Markup
 The markup that triggers the required-widgets JavaScript is in three parts:
 the form, the widgets, and the button.
 
-#.  The form should have the class ``gs-content-js-required``::
+#.  The form should have the class ``gs-content-js-required``:
+
+    .. code-block:: xml
 
       <form id="login-form" class="gs-content-js-required"
             tal:attributes="action request/URL">
 
 #.  Widgets that are required should have the class ``required``
-    surrounding the ``div``::
+    surrounding the ``div``:
+
+
+    .. code-block:: xml
 
       <div id="login-id-widget" class="form-widget required">
         <label class="text" for="login">Email Address</label>
@@ -67,14 +78,19 @@ the form, the widgets, and the button.
     need to be locked, then nothing else has to be done. The button will be
     disabled until all the required widgets are filled out. If there are
     multiple buttons then the buttons to lock can be specified in the
-    ``data-required-buttons`` attribute of the form::
+    ``data-required-buttons`` attribute of the form:
 
-      <form data-required-buttons="#form\.add"
+
+    .. code-block:: xml
+
+      <form id="add-form" class="gs-content-js-required"
+            tal:attributes="action request/URL"
+            data-required-buttons="#form\.add">
 
 Resources
 =========
 
-- Code repository: https://source.iopen.net/groupserver/gs.content.js.required/
+- Code repository: https://github.com/groupserver/gs.content.js.required/
 - Questions and comments to http://groupserver.org/groups/development/
 - Report bugs at https://redmine.iopen.net/projects/groupserver/
 
@@ -82,8 +98,8 @@ Resources
 .. _GroupServer.org: http://groupserver.org/
 .. _OnlineGroups.Net: https://onlinegroups.net
 .. _Michael JasonSmith: http://groupserver.org/p/mpj17
-.. _Creative Commons Attribution-Share Alike 3.0 New Zealand License:
-   http://creativecommons.org/licenses/by-sa/3.0/nz/
+.. _Creative Commons Attribution-Share Alike 4.0 International License:
+    http://creativecommons.org/licenses/by-sa/4.0/
 .. _Zope: http://zope.org/
 .. _formlib: http://docs.zope.org/zope.formlib/
 .. _browser resource: http://docs.zope.org/zope.browserresource/
