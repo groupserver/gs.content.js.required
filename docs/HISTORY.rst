@@ -1,6 +1,19 @@
 Changelog
 =========
 
+2.1.3 (2015-11-06)
+------------------
+
+* Adding an ``interval`` to poll for a changed form-value
+  `because Google Chrome`_ (see also `Detecting browser
+  autofill`_ on Stack Overflow)
+
+.. _because Google Chrome:
+   https://code.google.com/p/chromium/issues/detail?id=352527
+
+.. _Detecting browser autofill:
+   http://stackoverflow.com/questions/11708092/detecting-browser-autofill
+   
 2.1.2 (2014-10-10)
 ------------------
 
