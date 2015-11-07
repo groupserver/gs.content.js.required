@@ -39,11 +39,7 @@ function GSContentRequiredInterlock(form, button) {
         }
 
         if (checksOk) {
-            button.removeAttr('disabled');
-            if (intervalId) {
-                clearInterval(intervalId);
-                intervalId = null;
-            }
+            enable();
         } else {
             button.attr('disabled', 'disabled');
             if (!intervalId) { // That is a "not", for those at home
@@ -52,9 +48,30 @@ function GSContentRequiredInterlock(form, button) {
         }
     } // check_required_widgets
 
+    function enable() {
+        button.removeAttr('disabled');
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    } // enable
+
     function check(event) {
         check_required_widgets();
     } // check
+
+    function i_hate_chrome(event) {
+        // Check if the required-widgets that Chrome has autofilled is
+        // the same length of the required widgets.
+        // http://stackoverflow.com/questions/11708092/detecting-browser-autofill
+        var required = null, autofilledRequired = null;
+        required = document.querySelectorAll('.required input');
+        autofilledRequired = document.querySelectorAll(
+            '.required input:-webkit-autofill');
+        if (required.length == autofilledRequired.length) {
+            enable();
+        }
+    } // i_hate_chrome
 
     function init() {
         if ((button === null) || (typeof button === 'undefined')) {
@@ -68,6 +85,13 @@ function GSContentRequiredInterlock(form, button) {
         requiredWidgets
             .keyup(check)
             .on('paste', check);
+        try {
+            if (document.querySelectorAll('input:-webkit-autofill')) {
+                setTimeout(i_hate_chrome, INTERVAL_TIME);
+            }
+        } catch (e) {
+            // Not Google Chrome
+        }
     } // init
     init(); // Note the automatic execution
 
