@@ -19,7 +19,7 @@
     permission="zope2.Public" />
   <browser:resource
     name="gs-content-js-required-min-20151106.js"
-    file="browser/javascript/required.js"
+    file="browser/javascript/required-min.js"
     permission="zope2.Public" />
   <!--Old version-->
   <browser:resource
